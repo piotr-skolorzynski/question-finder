@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Finder</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <title>Question Finder</title>
 </head>
 <body>
 
@@ -18,14 +18,15 @@
             <input type="text" class="search" placeholder="Wpisz pytanie...">
         </div>        
         <div class="question-list">
+            <h2>Lista dostępnych pytań:</h2>
             <ul>
-                <li><a href="#1">Czym jest let. Jaka jest różnica między let a var?</a></li>
-                <li><a href="#2">Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</a></li>
+                <li>Czym jest let. Jaka jest różnica między let a var?</li>
+                <li>Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</li>
             </ul>
         </div>
     </div>
 
-    <div id="1">
+    <div id="1" class="answer">
         <h2>Czym jest let. Jaka jest różnica między let a var?</h2>
         <p>Wersja JavaScript ES6 wprowadziła słowa kluczowe let oraz const, które deklarują zmienną oraz stałą o zasięgu blokowym. Ich zasięg jest ograniczony do bloku czy też wyrażenia w którym są używane. Let dotyczy również hoisting ale nie są inicjowane wartością jak var z undefined. Wywołanie let przed jej deklaracją spowoduje błąd np. "error: info is not defined". Ponadto zdefiniowanie zmiennej let poza funkcją NIE dodaje jej do obiektu window.<br>Natomiast zmienne deklarowane poprzez var maja zasięg globalny chyba, że były zadeklarowane w funkcji przez co miały lokalny zasięg. Zmiennych var dotyczy hoisting, przez co są inicjalizowane wartością undefined automatycznie na początku funkcji. zdefiniowanie zmiennej var poza funkcją automatycznie dodaje ją do obiektu window.
         <pre>
@@ -37,7 +38,7 @@
             console.log(a); // 10
         </pre></p>
     </div>
-    <div id="#2">
+    <div id="#2" class="answer">
         <h2>Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</h2>
         <p>Funkcja strzałkowa (ES6) to uproszczona funkcja nie posiadająca this, arguments czy super, nie może być konstruktorem i najlepiej sprawdza się jako skrócony zapis zwykłych funkcji np. przekazywanych jako argument.<br>
         <pre>
