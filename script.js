@@ -14,12 +14,22 @@ const findAvailableAnswer = (e) => {
     });
 };
 
+const closePopup = () => {
+    $popup.style.display = 'none';
+    $popup.innerHTML = '';
+};
+
 const showAnswer = (e) => {
     $popup.style.display = 'flex';
     const liDataSet =  e.target.closest('li').getAttribute('data-num');
     const answerContent = document.getElementById(liDataSet).innerHTML;
     console.log(answerContent);
     $popup.innerHTML = answerContent;
+    const closeBtn = document.createElement('button');
+    closeBtn.classList.add('closeBtn');
+    closeBtn.textContent = 'Zamknij';
+    $popup.appendChild(closeBtn);
+    closeBtn.addEventListener('click', closePopup);
 };
 
 const listenShowBtns = () => {

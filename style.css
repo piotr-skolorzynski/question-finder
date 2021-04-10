@@ -81,7 +81,7 @@ body {
 .question-list ul {
     list-style: none;
     padding-bottom: 3rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .question-list li {
@@ -106,7 +106,7 @@ body {
     transition: background-color .3s;
 }
 
-.question-list .show:hover {
+.question-list .showBtn:hover {
    background-color: rgb(224, 211, 23)
 }
 
@@ -130,24 +130,30 @@ body {
     margin: 0 0 2rem;
     padding-bottom: 1.5rem;
     width: 100%;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 .popup p {
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     word-spacing: 5px;
 }
 
 .popup pre {
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
+}
+
+.popup li {
+    margin-left: 5rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
 }
 
 .popup .closeBtn {
-    margin: auto;
+    margin: 2rem auto 0;
     padding: 1rem 2.5rem;
     font-size: 1.6rem;
     border-radius: 5px;
@@ -157,7 +163,7 @@ body {
     transition: background-color .3s;
 }
 
-.popup .close:hover {
+.popup .closeBtn:hover {
     background-color: rgb(224, 211, 23);
 }
 

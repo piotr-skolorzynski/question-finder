@@ -19,9 +19,11 @@
         <div class="question-list">
             <h2>Lista dostępnych pytań:</h2>
             <ul>
-                <li data-num="1">Czym jest let. Jaka jest różnica między let a var? <button class="showBtn">pokaż</button></li>
-                <li data-num="2">Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)? <button class="showBtn">pokaż</button></li>
-                <li data-num="3">Nowe pytanie <button class="showBtn">pokaż</button></li>
+                <li data-num="1">Czym jest let. Jaka jest różnica między let a var?<button class="showBtn">pokaż</button></li>
+                <li data-num="2">Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)?<button class="showBtn">pokaż</button></li>
+                <li data-num="3">Jaki jest najszybszy sposób na pobranie elementu z drzewa DOM?<button class="showBtn">pokaż</button></li>
+                <li data-num="4">Czy zdarzenia window.onload oraz document.onload są wywoływane jednocześnie?<button class="showBtn">pokaż</button></li>
+                <li data-num="5">Czym jest null oraz undefined?<button class="showBtn">pokaż</button></li>
             </ul>
         </div>
     </div>
@@ -30,7 +32,7 @@
 
     <div id="1" class="answer">
         <h2>Czym jest let. Jaka jest różnica między let a var?</h2>
-        <p>Wersja JavaScript ES6 wprowadziła słowa kluczowe let oraz const, które deklarują zmienną oraz stałą o zasięgu blokowym. Ich zasięg jest ograniczony do bloku czy też wyrażenia w którym są używane. Let dotyczy również hoisting ale nie są inicjowane wartością jak var z undefined. Wywołanie let przed jej deklaracją spowoduje błąd np. "error: info is not defined". Ponadto zdefiniowanie zmiennej let poza funkcją NIE dodaje jej do obiektu window.<br>Natomiast zmienne deklarowane poprzez var maja zasięg globalny chyba, że były zadeklarowane w funkcji przez co miały lokalny zasięg. Zmiennych var dotyczy hoisting, przez co są inicjalizowane wartością undefined automatycznie na początku funkcji. zdefiniowanie zmiennej var poza funkcją automatycznie dodaje ją do obiektu window.
+        <p>Wersja JavaScript ES6 wprowadziła słowa kluczowe let oraz const, które deklarują zmienną oraz stałą o zasięgu blokowym. Ich zasięg jest ograniczony do bloku czy też wyrażenia w którym są używane. Let dotyczy również hoisting ale nie są inicjowane wartością jak var z undefined. Wywołanie let przed jej deklaracją spowoduje błąd np. "error: info is not defined". Ponadto zdefiniowanie zmiennej let poza funkcją NIE dodaje jej do obiektu window.<br>Natomiast zmienne deklarowane poprzez var mają zasięg globalny chyba, że były zadeklarowane w funkcji przez co miały lokalny zasięg. Zmiennych var dotyczy hoisting, przez co są inicjalizowane wartością undefined automatycznie na początku funkcji. zdefiniowanie zmiennej var poza funkcją automatycznie dodaje ją do obiektu window.
         <pre>
             let a = 10;
             if (1 == 1) {
@@ -39,7 +41,6 @@
             }
             console.log(a); // 10
         </pre></p>
-        <button class="closeBtn">Zamknij</button>
     </div>
     <div id="2" class="answer">
         <h2>Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</h2>
@@ -53,16 +54,60 @@
             let arr = [9,8,7,6,5,4,3,2,1];
             arr.forEach(a => console.log(a)); // 9, 8, 7, 6 ...
         </pre></p>
-        <button class="closeBtn">Zamknij</button>
     </div>
         <div id="3" class="answer">
-        <h2>opowiedź na nowe pytanie</h2>
-        <p>To jest ospowiedź na nowe pytanie<br>
-        <pre>
-            ?????
-        </pre></p>
-        <button class="closeBtn">Zamknij</button>
-    </div>       
+        <h2>Jaki jest najszybszy sposób na pobranie elementu z drzewa DOM?</h2>
+        <p>Jeżeli mamy identyfikator elementu to użycie getElementById() będzie najszybsze, ale posiadanie zbyt wielu identyfikatorów nie jest najlepszym rozwiązaniem ze wględu na powtarzanie styli.<br>
+        Klasy CSS są drugim najszybszym sposobem na wybranie elementu np. poprzez getElementByClassName().</p><br>
+        <ul>
+            <p>Poniżej ranking od najszybszej do najwolniejszej metody:</p>
+            <li>id np. #main</li>
+            <li>klasy np. .box</li>
+            <li>siblings: div + p</li>
+            <li>dziecko: div > p;</li>
+            <li>potomkowie (descendant): div span</li>
+            <li>uniwersalny selektor: *</li>
+            <li>atrybuty: div[data-type="gallery"]</li>
+            <li>pseudoklasy: div:first-child</li>
+        </ul>
+    </div>
+        </div>
+        <div id="4" class="answer">
+        <h2>Czy zdarzenia window.onload oraz document.onload są wywoływane jednocześnie?</h2>
+        <p>window.onload jest wywoływany kiedy DOM jest gotowy razaem z załadowanymi obrazkami, css, skryptami itd, czyli kiedy wszystko jest załadowane.<br>
+        <p>document.onload jest wywoływany kiedy DOM jest gotowy i załadowany, ale np. obrazki nie zostały jeszcze do końca pobrane.</p><br>
+        <ul>
+            <p>Dla document istnieje zmienna document.readyState której wartość odzwierciedla postęp ładowania dokumentu, wartość:</p>
+            <li>"loading" gdy jest ładowany</li>
+            <li>"interactive" kiedy parsowanie się kończy, ale dalej ładowane są dalsze zasoby</li>
+            <li>"complete" kiedy został załadowany</li>
+        </ul>
+        <p>Zdarzenie readystatechange jest wywoływane w dokumencie ze względu na powyższe zmiany.</p>
+    </div> 
+        </div>
+        <div id="5" class="answer">
+        <h2>Czym jest null oraz undefined?</h2>
+        <p>Wartość null reprezentuje intencjonalny brak wartości w zmiennej, jest to jeden z prymitywów w JavaScript. Wartość null ma typ object zwracaną z funkcji typeof. Aby opróżnić zmienną z wartości stosuje się przypisanie null jako wartości.</p><br>
+        <p>undefinded jest przypisywane automatycznie do nowo utworzonej zmiennej jeśli nie została przypisana jakaś inna wartość. Typem undefined jest undefined.</p>
+        <br>
+        <p>Główne różnice pomiędzy null a undefined:</p>
+        <ul>
+            <p>null:</p>
+            <li>jest przypisywaną wartością określającą, że zmienna nie wskazuje na obiekt lub jakąś wartość. Oznacza pustkę, brak referencji</li>
+            <li>typ null to obiekt</li>
+            <li>jest prymitywem</li>
+            <li>konwertuje dię do 0 przy prymitywnych operacjach</li>
+        </ul>
+        <br>
+        <ul>
+            <p>undefinded:</p>
+            <li>nie jest przypisywaną wartością, ale nowo powstałe zmienne bez przypisanej wartości będą miały undefined</li>
+            <li>typ undefined to undefined</li>
+            <li>undefined jest prymitywem określającym, że zmienna nie ma przypisanej wartości</li>
+            <li>reprezentuje brak wartości</li>
+            <li>konwertuje się do NaN przy prymitywnych operacjach</li>
+        </ul>
+    </div>        
     <script src="./script.js"></script>
 </body>
 </html>
