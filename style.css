@@ -63,7 +63,7 @@ body {
 #search {
     padding: 1rem 2rem;
     margin-bottom: 4rem;
-    width: 90%;
+    width: 100%;
     font-size: 2rem;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, .85);
@@ -75,22 +75,39 @@ body {
 
 .question-list h2 {
     padding: 3rem 0;
-    font-size: 2.6rem;
+    font-size: 2.4rem;
 }
 
 .question-list ul {
     list-style: none;
     padding-bottom: 3rem;
-    font-size: 2.3rem;
+    font-size: 1.8rem;
 }
 
 .question-list li {
+    display: flex;
     padding: .8rem 3rem;
     border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .question-list li:last-child {
     border-bottom: 0;
+}
+
+.question-list .show {
+    margin-left: auto;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 1px solid rgb(214, 208, 126);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.question-list .show:hover {
+   background-color: rgb(224, 211, 23)
 }
 
 .popup {
@@ -136,6 +153,7 @@ body {
     border-radius: 5px;
     text-transform: uppercase;
     background-color: rgb(214, 208, 126);
+    cursor: pointer;
     transition: background-color .3s;
 }
 

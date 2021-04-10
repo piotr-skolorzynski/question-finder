@@ -1,6 +1,8 @@
-const $questionList = document.querySelectorAll('.question-list li'); //catch all question from question-list
+const $questionList = document.querySelectorAll('.question-list li'); //catch all questions from question-list
 // console.log(questionList);
-const $input = document.getElementById('search') //catch input
+const $input = document.getElementById('search'); //catch input
+const $popup = document.getSelection('.popup'); //catch popup
+
 
 const findAvailableAnswer = (e) => {
     $questionList.forEach(li => {
