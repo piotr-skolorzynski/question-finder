@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
     <div class="wrapper">
         <div class="header">
             <div class="shadow"></div>
@@ -20,11 +19,13 @@
         <div class="question-list">
             <h2>Lista dostępnych pytań:</h2>
             <ul>
-                <li>Czym jest let. Jaka jest różnica między let a var?</li>
-                <li>Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</li>
+                <li data-num="1">Czym jest let. Jaka jest różnica między let a var?</li>
+                <li data-num="2">Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</li>
             </ul>
         </div>
     </div>
+
+    <div class="popup"></div>
 
     <div id="1" class="answer">
         <h2>Czym jest let. Jaka jest różnica między let a var?</h2>
@@ -37,8 +38,9 @@
             }
             console.log(a); // 10
         </pre></p>
+        <button class="close">Zamknij</button>
     </div>
-    <div id="#2" class="answer">
+    <div id="2" class="answer">
         <h2>Czym są funkcje strzałkowe tzw. arrow (fat arrow, lambda)</h2>
         <p>Funkcja strzałkowa (ES6) to uproszczona funkcja nie posiadająca this, arguments czy super, nie może być konstruktorem i najlepiej sprawdza się jako skrócony zapis zwykłych funkcji np. przekazywanych jako argument.<br>
         <pre>
@@ -50,8 +52,8 @@
             let arr = [9,8,7,6,5,4,3,2,1];
             arr.forEach(a => console.log(a)); // 9, 8, 7, 6 ...
         </pre> </p>
-    </div>
-    
+        <button class="close">Zamknij</button>
+    </div>    
     <script src="./script.js"></script>
 </body>
 </html>

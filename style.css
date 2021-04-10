@@ -8,21 +8,24 @@
 
 html {
     font-size: 62.5%;
-    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
 }
 
 .wrapper {
+    margin-top: 3rem;
     width: 800px;
     background-color: #fff;
     box-shadow: 0 0 10px #000;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .header {
@@ -31,7 +34,7 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    height: 36rem;
+    height: 38rem;
     padding: 2rem 4rem;
     background-image: url('./header.png');
     background-size: cover;
@@ -46,7 +49,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.24);
     z-index: -1;
 }
 
@@ -82,13 +85,62 @@ body {
 }
 
 .question-list li {
-    display: none;
     padding: .8rem 3rem;
     border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .question-list li:last-child {
     border-bottom: 0;
+}
+
+.popup {
+    display: none; /*to show change value on flex*/ 
+    position: absolute;
+    margin: 5rem auto;
+    padding: 3rem;
+    width: 80rem;
+    min-height: 36rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #ddd;
+    box-shadow: 0 0 10px #000;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.popup h2 {
+    margin: 0 0 2rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+    font-size: 2.4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.popup p {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 1.4;
+    word-spacing: 5px;
+}
+
+.popup pre {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.popup .close {
+    margin: auto;
+    padding: 1rem 2.5rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background-color: rgb(214, 208, 126);
+    transition: background-color .3s;
+}
+
+.popup .close:hover {
+    background-color: rgb(224, 211, 23);
 }
 
 .answer {
