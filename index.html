@@ -24,6 +24,11 @@
                 <li data-num="3">Jaki jest najszybszy sposób na pobranie elementu z drzewa DOM?<button class="showBtn">pokaż</button></li>
                 <li data-num="4">Czy zdarzenia window.onload oraz document.onload są wywoływane jednocześnie?<button class="showBtn">pokaż</button></li>
                 <li data-num="5">Czym jest null oraz undefined?<button class="showBtn">pokaż</button></li>
+                <li data-num="6">Jaka jest różnica między atrybutem a właściwością?<button class="showBtn">pokaż</button></li>
+                <li data-num="7">Czym jest NaN?<button class="showBtn">pokaż</button></li>
+                <li data-num="8">Czym jest operator typeof?<button class="showBtn">pokaż</button></li>
+                <li data-num="9">Jaka jest różnica między window a document?<button class="showBtn">pokaż</button></li>
+                <li data-num="10">Czym jest JSON?<button class="showBtn">pokaż</button></li>
             </ul>
         </div>
     </div>
@@ -55,7 +60,7 @@
             arr.forEach(a => console.log(a)); // 9, 8, 7, 6 ...
         </pre></p>
     </div>
-        <div id="3" class="answer">
+    <div id="3" class="answer">
         <h2>Jaki jest najszybszy sposób na pobranie elementu z drzewa DOM?</h2>
         <p>Jeżeli mamy identyfikator elementu to użycie getElementById() będzie najszybsze, ale posiadanie zbyt wielu identyfikatorów nie jest najlepszym rozwiązaniem ze wględu na powtarzanie styli.<br>
         Klasy CSS są drugim najszybszym sposobem na wybranie elementu np. poprzez getElementByClassName().</p><br>
@@ -71,8 +76,7 @@
             <li>pseudoklasy: div:first-child</li>
         </ul>
     </div>
-        </div>
-        <div id="4" class="answer">
+    <div id="4" class="answer">
         <h2>Czy zdarzenia window.onload oraz document.onload są wywoływane jednocześnie?</h2>
         <p>window.onload jest wywoływany kiedy DOM jest gotowy razaem z załadowanymi obrazkami, css, skryptami itd, czyli kiedy wszystko jest załadowane.<br>
         <p>document.onload jest wywoływany kiedy DOM jest gotowy i załadowany, ale np. obrazki nie zostały jeszcze do końca pobrane.</p><br>
@@ -84,10 +88,9 @@
         </ul>
         <p>Zdarzenie readystatechange jest wywoływane w dokumencie ze względu na powyższe zmiany.</p>
     </div> 
-        </div>
-        <div id="5" class="answer">
+    <div id="5" class="answer">
         <h2>Czym jest null oraz undefined?</h2>
-        <p>Wartość null reprezentuje intencjonalny brak wartości w zmiennej, jest to jeden z prymitywów w JavaScript. Wartość null ma typ object zwracaną z funkcji typeof. Aby opróżnić zmienną z wartości stosuje się przypisanie null jako wartości.</p><br>
+        <p>Wartość null reprezentuje intencjonalny brak wartości w zmiennej, jest to jeden z prymitywów w JavaScript. Wartość null ma typ object zwracaną z funkcji typeof. Aby opróżnić zmienną z wartości stosuje się przypisanie null jako wartości.</p>
         <p>undefinded jest przypisywane automatycznie do nowo utworzonej zmiennej jeśli nie została przypisana jakaś inna wartość. Typem undefined jest undefined.</p>
         <br>
         <p>Główne różnice pomiędzy null a undefined:</p>
@@ -107,7 +110,62 @@
             <li>reprezentuje brak wartości</li>
             <li>konwertuje się do NaN przy prymitywnych operacjach</li>
         </ul>
-    </div>        
+    </div> 
+    <div id="6" class="answer">
+        <h2>Jaka jest różnica między atrybutem a właściwością?</h2>
+        <p>Atrybuty w tagu html są przeniesione do drzewa DOM jako właściwość attributes będąca kolekcją wszystkich atrybutów w danym elemencie html, jest to w praktyce NamedNodeMap i jest uzupełniana podczas parsowania kodu html.</p>
+        <p>Można również użyć funkcji na danym elemencie drzewa DOM getAttribute() do uzyskania wartości atrybutu oraz setAttribute do zmiany wartości.</p>
+    </div>
+    <div id="7" class="answer">
+        <h2>Czym jest NaN?</h2>
+        <p>NaN jest to globalna właściwość reprezentująca wartość "Not-a-Number". Wskazuje, że wartość nie jest dopuszczalną liczbą, rzadko się z niej korzysta, ale czasem się pojawia podczas niedozwolonych operacji matematycznych np. Math.sqrt(-1); zwróci NaN.</p>
+        <p>Czym jest isNaN?</p>
+        <p>Jest to funkcja sprawdzająca czy wartość jest niedozwoloną liczbą, zwraca true jeśli tak jest np. isNaN(Math.sqrt(-1); //true</p>
+        <p>Czym jest isFinite?</p>
+        <p>Jest to funkcja sprawdzająca czy wartość to skończona liczba np:</p> 
+        <pre>
+            isFinite(Infinity); // false
+            isFinite(-Infinity); // false
+            isFinite(NaN); // false
+            isFinite(55); // true
+        </pre>
+    </div>
+    <div id="8" class="answer">
+        <h2>Czym jest operator typeof?</h2>
+        <p>Operator typeof w JavaScript zwraca typ danych przechowywanych w zmiennej np:</p> 
+        <pre>
+            console.log(typeof "text"); // string
+            console.log(typeof 12); // number
+            console.log(typeof true); // boolean
+            console.log(typeof [1,2]); // object
+            console.log(typeof {a:1}); // object
+            console.log(typeof (1+2)); // number
+            console.log(typeof undefined); // undefined
+            console.log(typeof null); // object
+        </pre>
+    </div>
+    <div id="9" class="answer">
+        <h2>Jak jest różnica między window a document?</h2>
+        <p>Globalny obiekt window w przeglądarce ma w sobie wszystkie globalne zmienne, globalne funkcje, obiekt location, XMLHttpRequest, console, localStorage itd.</p>
+        <p>Obiekt document również jest zawarty w window jako jego właściwość i jest reprezentacją DOM (Document Object Model) powstały w wyniku parsowania kodu HTML. Tagi HTML przekształcane są na węzły - nodes, dlatego document dostarcza funkcje jak getElementById(), addEventListener(), getElementsByTagName(), itd.</p> 
+        <pre>
+            document === window.document; // true
+        </pre>
+        <p>window może być pominięty przy odwołaniu się do document ponieważ JS znajdzie sobie ten obiekt na końcu w scope chain.</p>
+    </div>
+    <div id="10" class="answer">
+        <h2>Czym jest JSON?</h2>
+        <p>JSON - JavaScript Object Notation jest tekstowym formatem danych na bazie składni JavaScriptu, jest stosowany w transmisji danych poprzez sieć. Mime type JSON-a to application/json, rozszerzenie pliku .json</p>
+        <p>Aby skonwertować JSON-a na obiekt JavaScript stosujemy:</p> 
+        <pre>
+            let obj = JSON.parse(text);
+        </pre>
+        <p>Aby skonwertować obiekt na JSON-a:</p>
+        <pre>
+            let strJson = JSON.stringify(obj);
+        </pre>
+    </div>
+            
     <script src="./script.js"></script>
 </body>
 </html>
