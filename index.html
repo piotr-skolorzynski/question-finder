@@ -29,6 +29,11 @@
                 <li data-num="8">Czym jest operator typeof?<button class="showBtn">pokaż</button></li>
                 <li data-num="9">Jaka jest różnica między window a document?<button class="showBtn">pokaż</button></li>
                 <li data-num="10">Czym jest JSON?<button class="showBtn">pokaż</button></li>
+                <li data-num="11">Jakie są możliwości pobrania elementu z drzewa DOM?<button class="showBtn">pokaż</button></li>
+                <li data-num="12">Jak można dodać oraz usunąć klasę z elementu?<button class="showBtn">pokaż</button></li>
+                <li data-num="13">Jak uruchomić kod JavaScript gdy drzewo DOM jest już gotowe?<button class="showBtn">pokaż</button></li>
+                <li data-num="14">Jak można złapać wszystkie kliknięcia na stronie?<button class="showBtn">pokaż</button></li>
+                <li data-num="15">Jak można stworzyć obiekt w JavaScript?<button class="showBtn">pokaż</button></li>
             </ul>
         </div>
     </div>
@@ -164,6 +169,111 @@
         <pre>
             let strJson = JSON.stringify(obj);
         </pre>
+    </div><div id="10" class="answer">
+        <h2>Czym jest JSON?</h2>
+        <p>JSON - JavaScript Object Notation jest tekstowym formatem danych na bazie składni JavaScriptu, jest stosowany w transmisji danych poprzez sieć. Mime type JSON-a to application/json, rozszerzenie pliku .json</p>
+        <p>Aby skonwertować JSON-a na obiekt JavaScript stosujemy:</p> 
+        <pre>
+            let obj = JSON.parse(text);
+        </pre>
+        <p>Aby skonwertować obiekt na JSON-a:</p>
+        <pre>
+            let strJson = JSON.stringify(obj);
+        </pre>
+    </div>
+    <div id="11" class="answer">
+        <h2>Jakie są możliwości pobrania elementu z drzewa DOM?</h2>
+        <ul>
+            <p>Obiekt document dostarcza wielu funkcji do pobierania elementów z drzewa DOM:</p>
+            <li>getElementById("identyfikator") do pobrania elementu po id</li>
+            <li>getElementByClassName("klasa1") do pobrania elementów po nazwie klasy</li>
+            <li>getElementsByTagName("div") pobiera elementy po nazwie tagu</li>
+            <li>querySelector(".box > p") zwraca pierwszy element wg selektora CSS</li>
+            <li>querySelectorAll("p a") zwraca elementy wg selectora CSS</li>
+            <li>getElementsByName() zwraca listę elementów ze względu na atrybut name</li>
+        </ul>        
+    </div>
+    <div id="12" class="answer">
+        <h2>Jak można dodać oraz usunąć klasę z elementu?</h2>
+        <p>Klasę można dodać oraz usunąć operując na kolekcji classList np:</p>
+        <pre>
+            function addClass(selector, className) {
+                let el = document.querySelector(selector);
+                if (el) {
+                    el.classList.add(className);
+                }
+            };
+        </pre>
+        <pre>
+            function removeClass(selector, className) {
+                let el = document.querySelector(selector);
+                if (el) {
+                    el.classList.remove(className);
+                }
+            };
+        </pre>
+    </div>
+    <div id="13" class="answer">
+        <h2>Jak uruchomić kod JavaScript gdy drzewo DOM jest już gotowe?</h2>
+        <ul>
+           <p>Jest kilka możliwości:</p>
+           <li>umieszczenie skryptu na końcu strony przed tagiem zamykającym body</li>
+           <li>umieszczenie kodu w handlerze do wywołania na event DOMContentLoaded</li><br>
+            <pre>
+            document.addEventListener('DOMContentLoaded', function(){
+                //drzewo DOM gotowe
+            });
+            </pre>
+            <li>obserwowanie zmian właściwości readyState aż osiągnie stan "complete"</li><br>
+            <pre>
+                document.onreadystatechange = function() {
+                    if (document.readyState == "complete") {
+                        //DOM ready
+                    }
+                };
+            </pre>
+        </ul>
+    </div>
+    <div id="14" class="answer">
+        <h2>W jaki sposób można złapać wszystkie kliknięcia na stronie?</h2>
+        <p>Można wykorzystać event bubbling - bulgotania, gdyż wszystkie kliknięcia będą szły ku górze do elementu body.</p>
+        <pre>
+            document.querySelector('body').addEventListener('click', function() {
+                console.log("kliknięcie");
+            });
+        </pre>
+    </div>
+    <div id="15" class="answer">
+        <h2>Jak można stworzyć obiekt w JavaScript?</h2>
+        <ul>
+            <p>Jest wiele sposobów na stworzenie obiektu w JavaScript:</p>
+            <li>Kontruktor obiektu: <br>
+            <pre>
+                let obj = new Object();
+            </pre>
+            </li>
+            <li>
+                Funkcja create Obiektu:
+            <pre>
+                let obj = Object.create(null);
+            </pre>
+            </li>
+            <li>
+                Literał obiektu:
+            <pre>
+                let obj = {};
+            </pre>
+            </li>
+            <li>
+                Funkcja konstruująca:
+            <pre>
+                function Item(name) {
+                    this.name = name;
+                }
+                let item1 = new Item("desk");
+            </pre>
+            </li>
+        </ul>        
     </div>
             
     <script src="./script.js"></script>
