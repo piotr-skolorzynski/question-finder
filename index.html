@@ -34,6 +34,7 @@
                 <li data-num="13">Jak uruchomić kod JavaScript gdy drzewo DOM jest już gotowe?<button class="showBtn">pokaż</button></li>
                 <li data-num="14">Jak można złapać wszystkie kliknięcia na stronie?<button class="showBtn">pokaż</button></li>
                 <li data-num="15">Jak można stworzyć obiekt w JavaScript?<button class="showBtn">pokaż</button></li>
+                <li data-num="16">Do czego służy funkcja slice, splice, jakie są różnice między nimi?<button class="showBtn">pokaż</button></li>
             </ul>
         </div>
     </div>
@@ -253,19 +254,19 @@
             </pre>
             </li>
             <li>
-                Funkcja create Obiektu:
+                Funkcja create Obiektu: <br>
             <pre>
                 let obj = Object.create(null);
             </pre>
             </li>
             <li>
-                Literał obiektu:
+                Literał obiektu: <br>
             <pre>
                 let obj = {};
             </pre>
             </li>
             <li>
-                Funkcja konstruująca:
+                Funkcja konstruująca: <br>
             <pre>
                 function Item(name) {
                     this.name = name;
@@ -273,7 +274,77 @@
                 let item1 = new Item("desk");
             </pre>
             </li>
+            <li>Fukcja konstruująca z prototypem <br>
+                <pre>
+                    function Item(name {
+                        this.name = name;
+                    })
+                    Item.prototype.brand = "X";
+                    let item1 = new Item("desk");
+                </pre>
+            </li>
+            <li>Klasa ES6 <br>
+                <pre>
+                    clas Car {
+                        constructor(name) {
+                            this.name = name;
+                        }
+                    }
+                    let car1 = new Car("Mustang");
+                </pre>
+            </li>
+            <li>Singleton, który może być zainicjowany wyłącznie raz, wielokrotne wywołanie zawsze zwróci ten sam obiekt. <br>
+            <pre>
+                var SomeSingelton = (function() {
+                    let privData = 10;
+                    function SingletonClass() {
+                        return {
+                            getData: function() {return privData;}
+                        }
+                    }
+                    var instance;
+                    return {
+                        getInstance: function() {
+                            if(instance == null) {
+                                instance = new SingletonClass();
+                            }
+                            return instance;
+                        }
+                    };
+                })();
+                var obj = SomeSingelton.getInstance();
+            </pre>
+            </li>
         </ul>        
+    </div>
+    <div id="16" class="answer">
+        <h2>Do czego służy funkcja slice, splice, jakie są różnice między nimi?</h2>
+        <p>Funkcja slice pozwala na zwrócenie nowej tablicy z wybranymi elementami od startowego indeksu aż do opcjonalnego indeksu jako drugi argument, bez uwzględnienia tego ostatniego elementu. Jeżeli drugi argument jest pominięty wybierane są elementy do końca tablicy.</p>
+        <pre>
+            let arr = ["a", "b", "c", "d", "e", "f", "g"];
+            let arr1 = arr.slice(1); // ["b", "c", "d", "e", "f", "g"]
+            let arr2 = arr.slice(0,3); // ["a", "b", "c"]
+            let arr3 = arr.slice(5); // ["f", "g"];
+        </pre>
+        <p>Funkcja splice pozwala na usuwanie oraz dodawanie elementów do tablicy, zwracane są usunięte elementy. Pierwszy argument wskazuje pozycję do dodawania albo usunięcia elementów. Drugi opcjonalny argument określa ilość elementów do usunięcia. Każdy kolejny opcjonalny argument jest dodawany do tablicy.</p>
+        <pre>
+            let arr = [1,2,3,4,5,6,7];
+            let arr1 = arr.splice(0,0,"a","b","c") // arr = ["a", "b", "c", 1, 2, 3, 4, 5, 6, 7]
+            let arr2 = arr.splice(0,2,"X");
+            //arr2 = ["a", "b"]
+            //arr = ["X", "c", 1, 2, 3, 4, 5, 6, 7]
+        </pre>
+        <p>Jaka jest różnica między funkcjami slice i splice:</p>
+        <ul>
+            <p>slice:</p>
+            <li>nie modyfikuje oryginalnej funkcji (immutable)</li>
+            <li>zwraca podzbiór oryginalnej tablicy</li>
+            <li>funkcja używana do pobierania elementów z tablicy</li>
+            <p>splice:</p>
+            <li>modyfikuje oryginalną tablicę (mutable)</li>
+            <li>zwraca skasowane elementy w tablicy</li>
+            <li>używana do dodawania oraz kasowania elementów z tablicy</li>
+        </ul>
     </div>
             
     <script src="./script.js"></script>
